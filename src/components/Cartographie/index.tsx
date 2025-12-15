@@ -7,7 +7,7 @@ import CurrentCommuneElement from "../../features/CurrentCommuneElement";
 import CoucheDonneeElement from "../../features/CoucheDonneeElement";
 import CurrentProvinceElement from "features/CurrentProvinceElement";
 import CurrentRegionElement from "features/CurrentRegionElement";
-import { COLOR, COUCHE_DE_DONNEES_LISTE, LOCATION } from "constant";
+import { COLOR, COUCHE_DE_DONNEES_LISTE } from "constant";
 import FicheDeDonneeElement from "features/FicheDeDonneeElement";
 import FichesDynamiquesElement from "features/FichesDynamiquesElement";
 import ConfigZone from "./ConfigZone";
@@ -21,7 +21,7 @@ const Cartographie = () => {
         zoomLevel
     } = useContext(AppContext);
 
-    const mainCouche = COUCHE_DE_DONNEES_LISTE[0];
+    const mainCouche = COUCHE_DE_DONNEES_LISTE[4];
 
     return (
         <Stack

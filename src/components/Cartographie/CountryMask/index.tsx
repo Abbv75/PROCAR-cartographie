@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Polygon, useMap } from "react-leaflet";
 import L from 'leaflet';
-import IvoryCoastGeoJSON from 'assets/JSON/IvoryCoastGeoJSON';
+import geoGSONFile from 'assets/JSON/BeninGeoJSON';
 
 const WORLD_COORDS = [
     [90, -180],
@@ -17,7 +17,7 @@ export default () => {
 
     const loadMask = async () => {
         try {
-            const data = IvoryCoastGeoJSON;
+            const data = geoGSONFile;
             let coordinates: any[] = [];
 
             if (data.features[0].geometry.type === "Polygon") {
