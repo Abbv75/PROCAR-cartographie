@@ -24,7 +24,7 @@ const Header = () => {
                     ))}
 
                     <Typography level='h1' fontSize={15} width={300}>
-                        Projet de Développement des Chaînes de Valeurs Vivrières (PDC2V)
+                        Projet de Développement des Chaînes de Valeurs Vivrières (PROCAR)
                     </Typography>
                 </Stack>
 
@@ -34,7 +34,7 @@ const Header = () => {
                     color='success'
                     variant='plain'
                     onClick={() => {
-                        window.location.href = 'https://sise-pdc2v.org/'
+                        window.location.href = 'https://sise-PROCAR.org/'
                     }}
                 />
             </Card>

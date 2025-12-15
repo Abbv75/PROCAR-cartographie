@@ -4,7 +4,7 @@ module.exports = {
   webpack: {
     configure: {
       output: {
-        path: path.resolve(__dirname, 'PDC2V_map'),  // Replace with your target folder
+        path: path.resolve(__dirname, 'PROCAR_map'),  // Replace with your target folder
       },
     },
   },
