@@ -58,6 +58,9 @@ const ShapeFileContainer = ({
                 }),
                 onEachFeature: (feature, layer) => {
                     console.log(layer);
+                    console.log('====================================');
+                    console.log("Featurs: ", feature);
+                    console.log('====================================');
 
                     // --- CRÉATION MARQUEUR POINT (si géométrie de type Point) ---
                     if (feature.geometry.type === 'Point') {
@@ -97,7 +100,7 @@ const ShapeFileContainer = ({
                     // --- CRÉATION MARQUEUR NOM DE LA RÉGION (pour tous les types, y compris Point) ---
                     if (center) { // ⚡ Ajouter condition showName + center existant
                         const regionIcon = getCustomeTextIcon({
-                            text: coucheObject.name || coucheObject.nom_commune || '',
+                            text: feature.properties?.adm1_name || feature.properties?.adm0_name || coucheObject.name || coucheObject.nom_commune || '',
                             bgcolor: coucheObject?.textBgColor || 'transparent',
                             fontColor: coucheObject?.textColor || 'black',
                             fontSize: coucheObject?.fontSize || 10,

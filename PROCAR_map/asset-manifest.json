@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PROCAR_map/static/css/main.15030013.css",
-    "main.js": "/PROCAR_map/static/js/main.58ba35a4.js",
+    "main.js": "/PROCAR_map/static/js/main.ce90f817.js",
     "static/js/729.73f7dcbd.chunk.js": "/PROCAR_map/static/js/729.73f7dcbd.chunk.js",
     "static/js/453.6de56f10.chunk.js": "/PROCAR_map/static/js/453.6de56f10.chunk.js",
     "static/media/IvoryCoast.zip": "/PROCAR_map/static/media/IvoryCoast.c9963ce7bb369f695bbe.zip",
@@ -13,12 +13,12 @@
     "static/media/toggle.svg": "/PROCAR_map/static/media/toggle.4cb77f5b444ed35e8e2e.svg",
     "index.html": "/PROCAR_map/index.html",
     "main.15030013.css.map": "/PROCAR_map/static/css/main.15030013.css.map",
-    "main.58ba35a4.js.map": "/PROCAR_map/static/js/main.58ba35a4.js.map",
+    "main.ce90f817.js.map": "/PROCAR_map/static/js/main.ce90f817.js.map",
     "729.73f7dcbd.chunk.js.map": "/PROCAR_map/static/js/729.73f7dcbd.chunk.js.map",
     "453.6de56f10.chunk.js.map": "/PROCAR_map/static/js/453.6de56f10.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.15030013.css",
-    "static/js/main.58ba35a4.js"
+    "static/js/main.ce90f817.js"
   ]
 }
