@@ -65,7 +65,7 @@ const App = () => {
       const res = await getAllIcon();
 
       seticonList([...Object.values(ICON), ...res?.map(
-        ({ file }) => `https://PROCAR.fidaburkina.org/icon_carto/${file}`
+        ({ file }) => `https://sise-procar.org/icon_carto/${file}`
       ) ?? []]);
     } catch (error) {
       return;
