@@ -1,6 +1,6 @@
-import { Button, Card, Grid, Stack, Typography } from '@mui/joy'
+import { Box, Button, Card, Grid, Stack, Typography } from '@mui/joy'
 import { CardMedia } from '@mui/material'
-import { green, orange } from '@mui/material/colors'
+import { green, orange, red, yellow } from '@mui/material/colors'
 import { IMAGE } from 'constant'
 
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
                 alignItems: 'center'
             }} >
                 <Stack direction={'row'} alignItems={'center'} gap={1} >
-                    {[IMAGE.logo, IMAGE.bankMondiale, IMAGE.armorieLogo].map(value => (
+                    {[IMAGE.logo, IMAGE.FIDA, IMAGE.armorieLogo].map(value => (
                         <CardMedia
                             src={value}
                             sx={{ height: '50px', width: '50px', objectFit: 'contain' }}
@@ -24,7 +24,7 @@ const Header = () => {
                     ))}
 
                     <Typography level='h1' fontSize={15} width={300}>
-                        Projet de Développement des Chaînes de Valeurs Vivrières (PROCAR)
+                        Programme Cadre des Interventions du FIDA en milieu Rural (PROCAR)
                     </Typography>
                 </Stack>
 
@@ -40,9 +40,13 @@ const Header = () => {
             </Card>
 
             <Grid container >
-                {[orange[600], 'white', green[600]].map((value, index) => (
-                    <Grid bgcolor={value} xs={4} p={0.2} />
-                ))}
+                <Grid bgcolor={green[600]} xs={6} p={0.2} />
+                <Grid xs={6} >
+                    <Stack>
+                        <Box p={0.2} bgcolor={yellow[600]} />
+                        <Box p={0.2} bgcolor={red[800]} />
+                    </Stack>
+                </Grid>
             </Grid>
         </Stack>
     )
