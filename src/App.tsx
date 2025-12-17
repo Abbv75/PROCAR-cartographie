@@ -25,13 +25,6 @@ const App = () => {
   const [getAllFicheData, setgetAllFicheData] = useState(null as GET_ALL_FEUILLE | null);
   const [ficheDynamiquesData, setficheDynamiquesData] = useState([] as { title: string, icon: any }[]);
   const [legendeSection, setlegendeSection] = useState({});
-
-  // couche de donnees
-  const [coucheDeDonneesElementConfig, setcoucheDeDonneesElementConfig] = useState<coucheDeDonneesElementConfig_T>({
-    showShapefileName: true,
-    showShapefilePopup: false
-  });
-
   // rapport cartographique
   const [allRapportCartoSelected, setallRapportCartoSelected] = useState<{ data: RAPORT_CARTO_T, color?: string }[]>([]);
 
@@ -123,8 +116,6 @@ const App = () => {
         setShapeFileColorEditerDefaultValues,
         allRapportCartoSelected,
         setallRapportCartoSelected,
-        coucheDeDonneesElementConfig,
-        setcoucheDeDonneesElementConfig
       }}
     >
       <Stack

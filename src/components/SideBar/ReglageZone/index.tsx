@@ -1,13 +1,13 @@
 import { Stack, Typography } from '@mui/joy';
-import { memo, useContext } from 'react';
-import { AppContext } from 'providers';
+import { memo } from 'react';
 import { Sheet, Switch } from "@mui/joy";
+import useCoucheDeDonnee from 'stores/useCoucheDeDonnee';
 
 export default memo(() => {
     const {
         coucheDeDonneesElementConfig,
         setcoucheDeDonneesElementConfig
-    } = useContext(AppContext);
+    } = useCoucheDeDonnee();
 
     return (
         <Stack
@@ -27,10 +27,10 @@ export default memo(() => {
                 <Typography>Afficher les noms de couches</Typography>
                 <Switch
                     checked={coucheDeDonneesElementConfig.showShapefileName}
-                    onChange={() => setcoucheDeDonneesElementConfig((prev) => ({
-                        ...prev,
-                        showShapefileName: !prev.showShapefileName
-                    }))}
+                    onChange={() => setcoucheDeDonneesElementConfig({
+                        ...coucheDeDonneesElementConfig,
+                        showShapefileName: !coucheDeDonneesElementConfig.showShapefileName
+                    })}
                 />
             </Sheet>
 

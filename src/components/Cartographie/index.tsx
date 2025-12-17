@@ -11,7 +11,6 @@ import { COLOR, COUCHE_DE_DONNEES_LISTE } from "constant";
 import FicheDeDonneeElement from "features/FicheDeDonneeElement";
 import FichesDynamiquesElement from "features/FichesDynamiquesElement";
 import ConfigZone from "./ConfigZone";
-import LocaliteElement from "features/LocaliteElement";
 import RapportCartoElement from "features/RapportCartoElement";
 import CountryMask from "./CountryMask";
 
@@ -65,15 +64,13 @@ const Cartographie = () => {
 
                     <FichesDynamiquesElement />
 
-                    <LocaliteElement />
-
                     <RapportCartoElement />
 
                     {/* <ShapeFileContainer coucheDeDonneesListe={[{
-                        filePath: COUCHE_DE_DONNEES_LISTE[7].filePath,
+                        filePath: COUCHE_DE_DONNEES_LISTE[4].filePath,
                         opacity: 0.02,
-                        // couleur_c: green[800],
-                    } as SHAPE_OBJECT_T]} /> */}
+                        couleur_c: green[800],
+                    } as SHAPE_OBJECT_T]} />  */}
 
                     <CountryMask />
 
