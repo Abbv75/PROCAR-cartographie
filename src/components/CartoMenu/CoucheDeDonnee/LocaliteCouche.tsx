@@ -6,7 +6,6 @@ import { getAllRegion } from "functions/API/region/getAll";
 
 const LocaliteCouche = () => {
     const {
-        coucheDeDonneesSelectedListe,
         setlegendeSection,
         setlocaliteRegionsSelected,
         setlocaliteDepartementsSelected,

@@ -6,10 +6,6 @@ import { CartoMenuContext } from '../../providers'
 import { CARTO_MENU_EN_TETE_ZONE } from 'constant'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
-import CoucheDeDonnee from './CoucheDeDonnee'
-import FicheDeDonnee from './FicheDeDonnee'
-import FichesDynamiques from './FichesDynamiques'
-import RapportCartographique from './RapportCartographique'
 
 const CartoMenu = () => {
     const [currentMenu, setcurrentMenu] = useState(CARTO_MENU_EN_TETE_ZONE[0]);
@@ -19,20 +15,7 @@ const CartoMenu = () => {
     useEffect(
         () => {
             setcartoMenuIsOpen(true);
-
-            switch (currentMenu) {
-                case CARTO_MENU_EN_TETE_ZONE[0]:
-                    setpane(<CoucheDeDonnee />); break;
-
-                case CARTO_MENU_EN_TETE_ZONE[1]:
-                    setpane(<FicheDeDonnee />); break;
-
-                case CARTO_MENU_EN_TETE_ZONE[2]:
-                    setpane(<FichesDynamiques />); break;
-
-                case CARTO_MENU_EN_TETE_ZONE[3]:
-                    setpane(<RapportCartographique />); break;
-            }
+            setpane(<currentMenu.children/>)
         },
         [currentMenu]
     )
@@ -64,7 +47,6 @@ const CartoMenu = () => {
                         border: `2px solid ${currentMenu.color[900]}`,
                         width: 330
                     }}
-                    // unmountOnExit
                 >
                     <Stack
                         gap={1}

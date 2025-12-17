@@ -27,7 +27,6 @@ const App = () => {
   const [legendeSection, setlegendeSection] = useState({});
 
   // couche de donnees
-  const [coucheDeDonneesSelectedListe, setcoucheDeDonneesSelectedListe] = useState([] as typeof COUCHE_DE_DONNEES_LISTE);
   const [coucheDeDonneesElementConfig, setcoucheDeDonneesElementConfig] = useState<coucheDeDonneesElementConfig_T>({
     showShapefileName: true,
     showShapefilePopup: false
@@ -92,8 +91,6 @@ const App = () => {
       value={{
         currentMapSelected,
         mapRef,
-        coucheDeDonneesSelectedListe,
-        setcoucheDeDonneesSelectedListe,
         setcurrentMapSelected,
         zoomLevel,
         setzoomLevel,

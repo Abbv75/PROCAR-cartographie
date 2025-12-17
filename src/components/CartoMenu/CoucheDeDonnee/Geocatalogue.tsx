@@ -1,49 +1,45 @@
 import { Box, Button, ButtonGroup, Checkbox, LinearProgress, Sheet, Stack } from "@mui/joy";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../../providers";
-import { COUCHE_DE_DONNEE_T, LOADING_STATE_T, SHAPE_OBJECT_T } from "types";
-import { getCoucheDonnee } from "functions/API";
+import { SHAPE_OBJECT_T } from "types";
 import { REACT_APP_SHAPE_FILE_URL } from "constant";
+import useGeoCatalogueStore from "stores/useGeoCatalogueStore";
+import useCoucheDeDonnee from "stores/useCoucheDeDonnee";
 
 const Geocatalogue = () => {
     const {
-        coucheDeDonneesSelectedListe,
-        setcoucheDeDonneesSelectedListe,
         setlegendeSection,
         setshowShapeFileColorEditer,
         setShapeFileColorEditerDefaultValues,
         setShapeFileColorEditerSubmitFunction
     } = useContext(AppContext);
 
-    const [coucheDonneIsAllCocher, setcoucheDonneIsAllCocher] = useState<boolean>(false);
-    const [data, setdata] = useState<COUCHE_DE_DONNEE_T[]>([]);
-    const [loadingState, setloadingState] = useState<LOADING_STATE_T>(null);
+    const {
+        coucheDeDonneesSelectedListe,
+        setcoucheDeDonneesSelectedListe
+    } = useCoucheDeDonnee();
 
-    /** Charger les couches depuis l'API */
-    const loadData = async () => {
-        try {
-            setloadingState("En cours de chargement");
-            const res = await getCoucheDonnee();
-            if (res) {
-                setdata(res);
-            }
-        } catch (error) {
-            console.error("Erreur lors du chargement des couches", error);
-        } finally {
-            setloadingState(null);
-        }
-    };
+    const {
+        data,
+        setdata,
+        loadData,
+        loadingState,
+        coucheDonneIsAllCocher,
+        setcoucheDonneIsAllCocher,
+    } = useGeoCatalogueStore();
+
 
     /** Toggle (activer/désactiver) une couche */
     const toogleElementInCoucheDonnesListe = (element: SHAPE_OBJECT_T) => {
-        setcoucheDeDonneesSelectedListe((prev: SHAPE_OBJECT_T[]): SHAPE_OBJECT_T[] => {
-            const exists = prev.find((item: SHAPE_OBJECT_T) => item.name === element.name);
+        const value = ()=> {
+            const exists = coucheDeDonneesSelectedListe.find((item: SHAPE_OBJECT_T) => item.name === element.name);
             if (exists) {
-                return prev.filter((item: SHAPE_OBJECT_T) => item.name !== element.name);
+                return coucheDeDonneesSelectedListe.filter((item: SHAPE_OBJECT_T) => item.name !== element.name);
             } else {
-                return [...prev, element];
+                return [...coucheDeDonneesSelectedListe, element];
             }
-        });
+        }
+        setcoucheDeDonneesSelectedListe(value());
     };
 
     /** Tout cocher ou décocher */
@@ -79,31 +75,27 @@ const Geocatalogue = () => {
             const editionFunction = (borderColor?: string, backgroundColor?: string, reset?: boolean) => {
 
                 if (!reset) {
-                    setdata((prev) => {
-                        return prev.map((item, idx) => {
-                            if (idx === index) {
-                                return {
-                                    ...item,
-                                    couleur: backgroundColor || item.couleur,
-                                    couleur_c: borderColor || item.couleur_c
-                                }
+                    setdata(data.map((item, idx) => {
+                        if (idx === index) {
+                            return {
+                                ...item,
+                                couleur: backgroundColor || item.couleur,
+                                couleur_c: borderColor || item.couleur_c
                             }
-                            return item;
-                        })
-                    })
+                        }
+                        return item;
+                    }))
                 } else {
-                    setdata((prev) => {
-                        return prev.map((item, idx) => {
-                            if (idx === index) {
-                                return {
-                                    ...item,
-                                    couleur: data[index].couleur,
-                                    couleur_c: data[index].couleur_c
-                                }
+                    setdata(data.map((item, idx) => {
+                        if (idx === index) {
+                            return {
+                                ...item,
+                                couleur: data[index].couleur,
+                                couleur_c: data[index].couleur_c
                             }
-                            return item;
-                        })
-                    })
+                        }
+                        return item;
+                    }))
                 }
                 setshowShapeFileColorEditer(false);
             }
