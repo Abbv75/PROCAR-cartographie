@@ -192,3 +192,16 @@ export interface GET_RAPORT_CARTO_T {
     headers: string[],
     rows: { [key: string]: string }[]
 }
+
+export interface SessionResponse_T {
+    statusCode: number;
+    success: boolean;
+    messages: string[];
+    data: {
+        session_id?: number;
+        access_token: string;
+        access_token_expires_in?: number;
+        refresh_token?: string;
+        refresh_token_expires_in?: number;
+    };
+}

@@ -8,4 +8,9 @@ export { SIDE_PANEL_LIST } from "./sidePanelList"
 export { CARTO_MENU_EN_TETE_ZONE } from "./cartoMenuEntete";
 export { default as ICON } from './icon';
 
-export const REACT_APP_SHAPE_FILE_URL = process.env.REACT_APP_SHAPE_FILE_URL
+export const REACT_APP_SHAPE_FILE_URL = process.env.REACT_APP_SHAPE_FILE_URL;
+
+export const REACT_APP_API_AKVO_USER = {
+    username: process.env.REACT_APP_API_AKVO_USERNAME,
+    password: process.env.REACT_APP_API_AKVO_PASSWORD
+};
