@@ -26,6 +26,10 @@ jobs:
         working-directory: PROCAR_map
         run: npm run craco-build
 
+      - name: Debug build output
+        working-directory: PROCAR_map
+        run: ls -la
+
       - name: Upload build folder via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -35,7 +39,3 @@ jobs:
           local-dir: PROCAR_map/
           server-dir: /PROCAR_map/
           protocol: ftp
-
-      - name: Debug build output
-        working-directory: PROCAR_map
-        run: ls -la
