@@ -1,5 +1,6 @@
-import { faFileAlt, faGears, faMapLocationDot, faPieChart } from "@fortawesome/free-solid-svg-icons";
-import { blue, green, orange, red } from "@mui/material/colors";
+import { faFileAlt, faFileMedicalAlt, faGears, faMapLocationDot, faPieChart } from "@fortawesome/free-solid-svg-icons";
+import { blue, green, orange, purple, red } from "@mui/material/colors";
+import API_AKVO from "components/CartoMenu/API_AKVO";
 import CoucheDeDonnee from "components/CartoMenu/CoucheDeDonnee";
 import FicheDeDonnee from "components/CartoMenu/FicheDeDonnee";
 import FichesDynamiques from "components/CartoMenu/FichesDynamiques";
@@ -23,6 +24,12 @@ export const CARTO_MENU_EN_TETE_ZONE = [
         icon: faFileAlt,
         color: orange,
         children: FichesDynamiques
+    },
+    {
+        nom: 'API AKVO',
+        icon: faFileMedicalAlt,
+        color: purple,
+        children: API_AKVO
     },
     {
         nom: 'Rapport cartographique',
