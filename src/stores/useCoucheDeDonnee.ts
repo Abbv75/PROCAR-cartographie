@@ -7,7 +7,7 @@ interface instance_T {
     setcoucheDeDonneesSelectedListe: (value: SHAPE_OBJECT_T[]) => void;
     coucheDeDonneesElementConfig: coucheDeDonneesElementConfig_T;
     setcoucheDeDonneesElementConfig: (value: coucheDeDonneesElementConfig_T) => void;
-}
+} 
 
 export default create<instance_T>((set) => ({
     coucheDeDonneesSelectedListe: [],
