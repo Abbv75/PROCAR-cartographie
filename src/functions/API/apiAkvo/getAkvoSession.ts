@@ -2,7 +2,7 @@
 import { axiosInstance, REACT_APP_API_AKVO_USER } from "constant";
 import { SessionResponse_T } from "types";
 
-export default async (): Promise<{ accessToken: string; sessionId?: number }> => {
+export default async () => {
     try {
         const { data } = await axiosInstance.post<SessionResponse_T>(
             `/api-akvo/sessions`,

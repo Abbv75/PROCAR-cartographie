@@ -16,7 +16,7 @@ interface ProjetResponse {
     };
 }
 
-export default async (): Promise<any[]> => {
+export default async () => {
     try {
         // Obtenir le token automatiquement
         const { accessToken } = await getAkvoSession();
