@@ -32,6 +32,10 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: PROCAR_map/build/
+          local-dir: PROCAR_map/
           server-dir: /PROCAR_map/
           protocol: ftp
+
+      - name: Debug build output
+        working-directory: PROCAR_map
+        run: ls -la
