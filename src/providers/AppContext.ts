@@ -6,7 +6,6 @@ import { coucheDeDonneesElementConfig_T } from "types/AppT";
 export const AppContext = createContext({} as {
     currentMapSelected: typeof FOND_DE_CARTE[0], setcurrentMapSelected: USE_STATE_T,
     mapRef: React.RefObject<HTMLDivElement>,
-    coucheDeDonneesSelectedListe: SHAPE_OBJECT_T[], setcoucheDeDonneesSelectedListe: USE_STATE_T,
     zoomLevel: number, setzoomLevel?: USE_STATE_T,
     allRequeteCartoSelected: { icon?: any, data: GET_ALL_REQUETE_CARTE_T }[], setallRequeteCartoSelected: USE_STATE_T,
     ficheTitleSelected: string[], setficheTitleSelected: USE_STATE_T,
@@ -42,6 +41,4 @@ export const AppContext = createContext({} as {
     } | undefined>,
     allRapportCartoSelected: { data: RAPORT_CARTO_T, color?: string }[],
     setallRapportCartoSelected: USE_STATE_T<{ data: RAPORT_CARTO_T, color?: string }[]>,
-    coucheDeDonneesElementConfig: coucheDeDonneesElementConfig_T,
-    setcoucheDeDonneesElementConfig: USE_STATE_T<coucheDeDonneesElementConfig_T>
 });

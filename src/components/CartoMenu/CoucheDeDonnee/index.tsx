@@ -1,5 +1,4 @@
-import { Stack, Tab, TabList, TabPanel, Tabs } from "@mui/joy";
-import LocaliteCouche from "./LocaliteCouche";
+import { Stack } from "@mui/joy";
 import Geocatalogue from "./Geocatalogue";
 
 const CoucheDeDonnee = () => {
