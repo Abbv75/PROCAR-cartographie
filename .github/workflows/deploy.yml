@@ -1,17 +1,17 @@
-name: Deploy build/ via FTP
+name: Deploy PROCAR Cartographie
 
 on:
   push:
     branches:
-      - push-server
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -19,23 +19,18 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: PROCAR_map
-        run: npm install
+        run: npm ci
 
-      - name: Build project (CRACO)
-        working-directory: PROCAR_map
-        run: npm run craco-build
+      - name: Build project
+        run: npm run build
 
-      - name: Debug build output
-        working-directory: PROCAR_map
-        run: ls -la
-
-      - name: Upload build folder via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # ⚠️ IMPORTANT : on déploie PROCAR_map
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: PROCAR_map/
-          server-dir: /PROCAR_map/
-          protocol: ftp
+          server-dir: /public_html/ # à adapter
+          dangerous-clean-slate: true
