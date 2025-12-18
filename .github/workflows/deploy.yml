@@ -10,30 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Récupération du code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2️⃣ Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "npm"
-          cache-dependency-path: PROCAR_map/package-lock.json
 
-      # 3️⃣ Installer les dépendances
       - name: Install dependencies
         working-directory: PROCAR_map
         run: npm install
 
-      # 4️⃣ Build CRACO
-      - name: Build project
+      - name: Build project (CRACO)
         working-directory: PROCAR_map
-        run: npm run build
-        # ou: npx craco build
+        run: npm run craco-build
 
-      # 5️⃣ Upload du build UNIQUEMENT
       - name: Upload build folder via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
